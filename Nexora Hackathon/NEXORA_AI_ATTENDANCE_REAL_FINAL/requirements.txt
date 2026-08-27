@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+python-multipart
+numpy
+opencv-python==4.11.0.86
+deepface==0.0.100
+tensorflow==2.21.0
+tf-keras==2.21.0
+pydantic
