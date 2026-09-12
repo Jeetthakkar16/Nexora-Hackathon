@@ -1,0 +1,44 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LogiShield — AI Logistics Autopilot</title><link rel="icon" href="/assets/favicon.svg">
+<link rel="stylesheet" href="/assets/css/tokens.css"><link rel="stylesheet" href="/assets/css/base.css"><link rel="stylesheet" href="/assets/css/layout.css"><link rel="stylesheet" href="/assets/css/components.css"><link rel="stylesheet" href="/assets/css/pages.css">
+</head><body>
+<div class="app"><aside class="sidebar">
+<a class="brand" data-page="dashboard"><span class="brand-mark">L</span><span><b>LogiShield</b><small>AI Logistics Autopilot</small></span></a>
+<div class="nav-label">Command</div><a class="nav-item active" data-page="dashboard">◈ Dashboard</a><a class="nav-item" data-page="operations">◎ Live Operations</a>
+<div class="nav-label">Operations</div><a class="nav-item" data-page="fleet">▣ Fleet</a><a class="nav-item" data-page="shipments">□ Shipments</a><a class="nav-item" data-page="optimization">↗ Route Intelligence</a>
+<div class="nav-label">Intelligence</div><a class="nav-item" data-page="resilience">◇ Resilience Lab</a><a class="nav-item" data-page="models">⬢ AI Models</a>
+<div class="nav-label">Decisions</div><a class="nav-item" data-page="decisions">✓ Decision Ledger</a>
+<div class="nav-label">System</div><a class="nav-item" data-page="settings">⚙ Settings</a>
+</aside><main class="main">
+<header class="topbar"><div><span class="top-title">LogiShield</span> <span class="muted">/ <span id="crumb">Dashboard</span></span></div><div class="status"><span class="dot"></span> System operational</div></header>
+<div class="content">
+
+<section class="page active" id="dashboard"><div class="hero"><div><h1>Command Center</h1><p class="sub">Observe your logistics network, understand risk, and act on verified AI recommendations.</p></div></div>
+<div class="grid grid-4" id="kpis"></div><br><div class="grid grid-2">
+<div class="card"><div class="card-head"><b>Network Performance</b><span class="badge green">DATABASE STATE</span></div><div class="card-body"><div class="chart" id="chart"></div></div></div>
+<div class="card"><div class="card-head"><b>Operational Signals</b></div><div class="card-body" id="signals"></div></div></div><br>
+<div class="card"><div class="card-head"><b>Fleet Map</b><span class="muted">OpenStreetMap</span></div><div class="map"><iframe title="OpenStreetMap" src="https://www.openstreetmap.org/export/embed.html?bbox=72.80%2C18.88%2C72.95%2C19.15&layer=mapnik"></iframe></div></div></section>
+
+<section class="page panel" id="operations"><div class="hero"><div><h1>Live Operations</h1><p class="sub">Current vehicles, shipments and operational state.</p></div><button class="btn" onclick="loadAll()">Refresh</button></div><div class="grid grid-2"><div class="card"><div class="card-head"><b>Vehicles</b></div><div class="card-body" id="opsVehicles"></div></div><div class="card"><div class="card-head"><b>Shipments</b></div><div class="card-body" id="opsShipments"></div></div></div></section>
+
+<section class="page panel" id="fleet"><div class="hero"><div><h1>Fleet</h1><p class="sub">Manage capacity, availability and GPS state.</p></div><button class="btn primary" onclick="openVehicle()">+ Add Vehicle</button></div><div class="card"><div id="fleetTable"></div></div></section>
+
+<section class="page panel" id="shipments"><div class="hero"><div><h1>Shipments</h1><p class="sub">Priorities, destinations, weights and lifecycle state.</p></div><button class="btn primary" onclick="openShipment()">+ Add Shipment</button></div><div class="card"><div id="shipTable"></div></div></section>
+
+<section class="page panel" id="optimization"><div class="hero"><div><h1>Route Intelligence</h1><p class="sub">Run a capacity-aware plan from the current database state.</p></div><button class="btn primary" onclick="runOptimization()">Run Optimization</button></div>
+<div class="grid grid-2"><div class="card"><div class="card-head"><b>Optimization Result</b></div><div class="card-body" id="optResult"><div class="notice">Run optimization to calculate a plan.</div></div></div><div class="card"><div class="card-head"><b>Routing Layer</b></div><div class="card-body"><div class="map"><iframe title="OpenStreetMap routing context" src="https://www.openstreetmap.org/export/embed.html?bbox=72.75%2C18.80%2C73.10%2C19.25&layer=mapnik"></iframe></div></div></div></div></section>
+
+<section class="page panel" id="resilience"><div class="hero"><div><h1>Resilience Lab</h1><p class="sub">Stress-test the network before committing an operational change.</p></div></div>
+<div class="card"><div class="card-body"><div class="form-grid"><div class="field"><label>EVENT TYPE</label><select id="scenarioType" class="input"><option>VEHICLE_BREAKDOWN</option><option>TRAVEL_TIME_SURGE</option><option>DEMAND_SURGE</option><option>VEHICLE_CAPACITY_LOSS</option><option>WAREHOUSE_OUTAGE</option><option>CUSTOM</option></select></div><div class="field"><label>SEVERITY <span id="sevVal">60%</span></label><input id="severity" type="range" min="0" max="100" value="60" style="width:100%"></div></div><br><button class="btn primary" onclick="simulate()">Simulate Scenario</button></div></div><br>
+<div class="card"><div class="card-head"><b>Strategy Comparison</b></div><div class="card-body" id="scenarioResult"><div class="notice">No scenario simulated.</div></div></div></section>
+
+<section class="page panel" id="models"><div class="hero"><div><h1>AI Models</h1><p class="sub">Versioned registry and training history.</p></div></div><div class="grid grid-2"><div class="card"><div class="card-head"><b>Registry</b></div><div class="card-body" id="modelsList"></div></div><div class="card"><div class="card-head"><b>Training Runs</b></div><div class="card-body" id="trainingList"></div></div></div></section>
+
+<section class="page panel" id="decisions"><div class="hero"><div><h1>Decision Ledger</h1><p class="sub">AI proposals remain reviewable and require human approval.</p></div></div><div class="card"><div id="decisionTable"></div></div></section>
+
+<section class="page panel" id="settings"><div class="hero"><div><h1>Settings</h1><p class="sub">System and architecture configuration.</p></div></div><div class="grid grid-2"><div class="card"><div class="card-head"><b>Routing</b></div><div class="card-body"><p class="muted">Maps: OpenStreetMap</p><p class="muted">Routing: OSRM</p><p class="muted">Geocoding: Nominatim</p></div></div><div class="card"><div class="card-head"><b>Stack</b></div><div class="card-body"><p class="muted">FastAPI · SQLite WAL · OR-Tools · scikit-learn</p><p class="muted">Scale-out target: PostgreSQL/PostGIS + Redis.</p></div></div></div></section>
+</div></main></div>
+<div class="modal" id="modal"><div class="modal-box" id="modalBox"></div></div>
+<script src="/assets/js/api.js"></script><script src="/assets/js/app.js"></script>
+</body></html>
