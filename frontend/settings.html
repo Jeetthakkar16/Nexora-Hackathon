@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LogiShield — Settings</title>
+<link rel="icon" href="/assets/favicon.svg">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="/assets/css/tokens.css">
+<link rel="stylesheet" href="/assets/css/base.css">
+<link rel="stylesheet" href="/assets/css/layout.css">
+<link rel="stylesheet" href="/assets/css/components.css">
+<link rel="stylesheet" href="/assets/css/pages.css">
+</head><body>
+<div class="app">
+<aside class="sidebar">
+<a class="brand" href="/dashboard.html"><span class="brand-mark">L</span>
+<span><b>LogiShield</b><small>AI Logistics Autopilot</small></span></a>
+<div class="nav-label">COMMAND</div>
+<a class="nav-item" href="/dashboard.html">◈ Dashboard</a><a class="nav-item" href="/operations.html">◎ Live Operations</a><a class="nav-item" href="/fleet.html">▣ Fleet</a><a class="nav-item" href="/shipments.html">□ Shipments</a><a class="nav-item" href="/optimization.html">↗ Route Intelligence</a><a class="nav-item" href="/multimodal.html">⛴ Multimodal Planner</a><a class="nav-item" href="/resilience.html">◇ Resilience Lab</a><a class="nav-item" href="/models.html">⬢ AI Models</a><a class="nav-item" href="/sos.html">⚠ Distress SOS</a><a class="nav-item" href="/decisions.html">✓ Decision Ledger</a><a class="nav-item active" href="/settings.html">⚙ Settings</a>
+</aside>
+<main class="main"><header class="topbar">
+<div><span class="top-title">LogiShield</span> <span class="muted">/ Settings</span></div>
+<div class="status"><span class="dot"></span> Backend connected</div>
+</header><div class="content"><section class="page active"><div class="hero"><div><h1>Settings & Data Provenance</h1><p class="sub">Open-source geospatial stack and transparent cost policy.</p></div></div>
+<div class="grid grid-2"><div class="card"><div class="card-head"><b>Live Data Sources</b></div><div class="card-body"><p>Map: OpenStreetMap</p><p>Geocoding: Nominatim</p><p>Road routing: OSRM</p><p>Ferry + police discovery: OpenStreetMap / Overpass</p></div></div>
+<div class="card"><div class="card-head"><b>Billing Policy</b></div><div class="card-body"><p>Distance/time come from routing. Rates are configurable. No invented tolls or tariffs are presented as live facts.</p></div></div></div></section></div></main></div>
+<script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script defer src="/assets/js/api.js"></script>
+<script defer src="/assets/js/app.js"></script>
+</body></html>

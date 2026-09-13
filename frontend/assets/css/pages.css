@@ -1,0 +1,12 @@
+body:before{content:"";position:fixed;width:500px;height:500px;border-radius:50%;background:rgba(14,165,233,.08);filter:blur(90px);top:-250px;right:-120px;pointer-events:none}
+.page{animation:rise .25s ease}@keyframes rise{from{opacity:.4;transform:translateY(5px)}to{opacity:1;transform:none}}
+.chart{height:210px;display:flex;align-items:end;gap:8px;padding:10px}.bar{flex:1;background:linear-gradient(180deg,#38bdf8,#2563eb);border-radius:6px 6px 2px 2px;min-height:8px}
+.route-line{font-family:ui-monospace,monospace;color:#89a4bf;font-size:12px;line-height:1.8}
+
+.map{min-height:420px;border-radius:12px;overflow:hidden;background:#08121f}
+.custom-marker{background:transparent;border:0}
+.vehicle-marker,.start-marker,.destination-marker,.boat-marker,.police-marker,.sos-marker{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:17px;border:2px solid rgba(255,255,255,.85);box-shadow:0 4px 14px rgba(0,0,0,.45)}
+.vehicle-marker{background:#1d78d6}.start-marker{background:#19a974}.destination-marker{background:#9b59ff}.boat-marker{background:#0aa6a6}.police-marker{background:#f2a900}.sos-marker{background:#d33}
+.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:#0c1a2a;color:#eef5ff}
+.leaflet-control-attribution{background:rgba(5,12,22,.8)!important;color:#b9c9dc}
+.leaflet-control-attribution a{color:#73bfff}

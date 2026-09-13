@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LogiShield — Distress SOS</title>
+<link rel="icon" href="/assets/favicon.svg">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="/assets/css/tokens.css">
+<link rel="stylesheet" href="/assets/css/base.css">
+<link rel="stylesheet" href="/assets/css/layout.css">
+<link rel="stylesheet" href="/assets/css/components.css">
+<link rel="stylesheet" href="/assets/css/pages.css">
+</head><body>
+<div class="app">
+<aside class="sidebar">
+<a class="brand" href="/dashboard.html"><span class="brand-mark">L</span>
+<span><b>LogiShield</b><small>AI Logistics Autopilot</small></span></a>
+<div class="nav-label">COMMAND</div>
+<a class="nav-item" href="/dashboard.html">◈ Dashboard</a><a class="nav-item" href="/operations.html">◎ Live Operations</a><a class="nav-item" href="/fleet.html">▣ Fleet</a><a class="nav-item" href="/shipments.html">□ Shipments</a><a class="nav-item" href="/optimization.html">↗ Route Intelligence</a><a class="nav-item" href="/multimodal.html">⛴ Multimodal Planner</a><a class="nav-item" href="/resilience.html">◇ Resilience Lab</a><a class="nav-item" href="/models.html">⬢ AI Models</a><a class="nav-item active" href="/sos.html">⚠ Distress SOS</a><a class="nav-item" href="/decisions.html">✓ Decision Ledger</a><a class="nav-item" href="/settings.html">⚙ Settings</a>
+</aside>
+<main class="main"><header class="topbar">
+<div><span class="top-title">LogiShield</span> <span class="muted">/ Distress SOS</span></div>
+<div class="status"><span class="dot"></span> Backend connected</div>
+</header><div class="content"><section class="page active"><div class="hero"><div><h1>Distress SOS & Response Map</h1><p class="sub">Incident location, nearby OSM police stations and response ETA.</p></div></div>
+<div class="grid grid-2"><div class="card"><div class="card-head"><b>Telematics Event</b></div><div class="card-body"><div class="form-grid">
+<div class="field"><label>LATITUDE</label><input id="sosLat" class="input" type="number" step="any" placeholder="19.0760"></div>
+<div class="field"><label>LONGITUDE</label><input id="sosLon" class="input" type="number" step="any" placeholder="72.8777"></div>
+<div class="field"><label>VEHICLE ID</label><input id="sosVehicle" class="input" type="number"></div>
+<div class="field"><label>TRIGGER</label><select id="sosTrigger" class="input"><option>AUTOMATIC_INCIDENT</option><option>PANIC_BUTTON</option><option>IMPACT_DETECTED</option><option>ROLLOVER_DETECTED</option></select></div></div><br>
+<button class="btn danger" onclick="triggerSOS()">Prepare Distress SOS</button><div class="notice" style="margin-top:12px">Prototype mode: no external police dispatch is made.</div></div></div>
+<div class="card"><div class="card-head"><b>Incident Map</b></div><div class="card-body"><div id="sosMap" class="map"></div></div></div></div><br>
+<div class="card"><div class="card-head"><b>Nearby Police Response Estimates</b></div><div class="card-body" id="policeResult"><div class="notice">Trigger an incident to query OSM.</div></div></div></section></div></main></div>
+<script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script defer src="/assets/js/api.js"></script>
+<script defer src="/assets/js/app.js"></script>
+</body></html>

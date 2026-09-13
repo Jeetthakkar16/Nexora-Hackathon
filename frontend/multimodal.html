@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LogiShield — Multimodal Planner</title>
+<link rel="icon" href="/assets/favicon.svg">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="/assets/css/tokens.css">
+<link rel="stylesheet" href="/assets/css/base.css">
+<link rel="stylesheet" href="/assets/css/layout.css">
+<link rel="stylesheet" href="/assets/css/components.css">
+<link rel="stylesheet" href="/assets/css/pages.css">
+</head><body>
+<div class="app">
+<aside class="sidebar">
+<a class="brand" href="/dashboard.html"><span class="brand-mark">L</span>
+<span><b>LogiShield</b><small>AI Logistics Autopilot</small></span></a>
+<div class="nav-label">COMMAND</div>
+<a class="nav-item" href="/dashboard.html">◈ Dashboard</a><a class="nav-item" href="/operations.html">◎ Live Operations</a><a class="nav-item" href="/fleet.html">▣ Fleet</a><a class="nav-item" href="/shipments.html">□ Shipments</a><a class="nav-item" href="/optimization.html">↗ Route Intelligence</a><a class="nav-item active" href="/multimodal.html">⛴ Multimodal Planner</a><a class="nav-item" href="/resilience.html">◇ Resilience Lab</a><a class="nav-item" href="/models.html">⬢ AI Models</a><a class="nav-item" href="/sos.html">⚠ Distress SOS</a><a class="nav-item" href="/decisions.html">✓ Decision Ledger</a><a class="nav-item" href="/settings.html">⚙ Settings</a>
+</aside>
+<main class="main"><header class="topbar">
+<div><span class="top-title">LogiShield</span> <span class="muted">/ Multimodal Planner</span></div>
+<div class="status"><span class="dot"></span> Backend connected</div>
+</header><div class="content"><section class="page active"><div class="hero"><div><h1>Multimodal Route & Bill</h1><p class="sub">Road + verified OSM ferry connections.</p></div></div>
+<div class="card"><div class="card-body"><div class="form-grid">
+<div class="field"><label>ORIGIN</label><input id="mmOrigin" class="input" placeholder="Mumbai, Maharashtra"></div>
+<div class="field"><label>DESTINATION</label><input id="mmDestination" class="input" placeholder="Alibag, Maharashtra"></div>
+<div class="field"><label>ROAD ₹/KM</label><input id="roadRate" class="input" type="number" value="18"></div>
+<div class="field"><label>DRIVER ₹/HOUR</label><input id="driverRate" class="input" type="number" value="180"></div>
+<div class="field"><label>HANDLING ₹</label><input id="handlingRate" class="input" type="number" value="250"></div>
+<div class="field"><label>FERRY ₹/KM</label><input id="ferryRate" class="input" type="number" value="0"></div>
+<div class="field"><label>FERRY FIXED ₹</label><input id="ferryFixed" class="input" type="number" value="0"></div>
+</div><br><button class="btn primary" onclick="planMultimodal()">Build Route + Bill</button></div></div><br>
+<div class="grid grid-2"><div class="card"><div class="card-head"><b>Route & Bill</b></div><div class="card-body" id="mmResult"><div class="notice">Enter origin and destination.</div></div></div>
+<div class="card"><div class="card-head"><b>Map</b></div><div class="card-body"><div id="mmMap" class="map"></div></div></div></div></section></div></main></div>
+<script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script defer src="/assets/js/api.js"></script>
+<script defer src="/assets/js/app.js"></script>
+</body></html>
